@@ -1,0 +1,145 @@
+<div class="subjects-page">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <h2>🎓 SPMS</h2>
+
+    <a routerLink="/dashboard">🏠 Dashboard</a>
+
+    <a routerLink="/profile">👤 Profile</a>
+
+    <a class="active" routerLink="/subjects">📚 Subjects</a>
+
+    <a routerLink="/attendance">🗓️ Attendance</a>
+
+    <a routerLink="/productivity">📈 Productivity</a>
+
+    <a routerLink="/assignments">📝 Assignments</a>
+
+    <a>⚙️ Settings</a>
+
+    <a routerLink="/login">🚪 Logout</a>
+
+  </aside>
+
+
+  <!-- Main Content -->
+  <main>
+
+    <h1>📚 My Subjects</h1>
+
+    <div class="subjects">
+
+      <!-- Subject 1 -->
+      <div class="subject-card">
+
+        <div class="icon">💻</div>
+
+        <h2>Software Engineering</h2>
+
+        <p>Faculty: Prof. Shah</p>
+
+        <p>Attendance: 92%</p>
+
+        <button [routerLink]="['/notes', 'Software Engineering']">
+          View Notes
+        </button>
+
+      </div>
+
+
+      <!-- Subject 2 -->
+      <div class="subject-card">
+
+        <div class="icon">🌐</div>
+
+        <h2>Advanced Web Technology</h2>
+
+        <p>Faculty: Prof. Patel</p>
+
+        <p>Attendance: 89%</p>
+
+        <button [routerLink]="['/notes', 'Advanced Web Technology']">
+          View Notes
+        </button>
+
+      </div>
+
+
+      <!-- Subject 3 -->
+      <div class="subject-card">
+
+        <div class="icon">🗄️</div>
+
+        <h2>Database Management</h2>
+
+        <p>Faculty: Prof. Mehta</p>
+
+        <p>Attendance: 95%</p>
+
+        <button [routerLink]="['/notes', 'Database Management']">
+          View Notes
+        </button>
+
+      </div>
+
+
+      <!-- Subject 4 -->
+      <div class="subject-card">
+
+        <div class="icon">🧠</div>
+
+        <h2>Artificial Intelligence</h2>
+
+        <p>Faculty: Prof. Joshi</p>
+
+        <p>Attendance: 90%</p>
+
+        <button [routerLink]="['/notes', 'Artificial Intelligence']">
+          View Notes
+        </button>
+
+      </div>
+
+
+      <!-- Subject 5 -->
+      <div class="subject-card">
+
+        <div class="icon">🌐</div>
+
+        <h2>Computer Networks</h2>
+
+        <p>Faculty: Prof. Desai</p>
+
+        <p>Attendance: 93%</p>
+
+        <button [routerLink]="['/notes', 'Computer Networks']">
+          View Notes
+        </button>
+
+      </div>
+
+
+      <!-- Subject 6 -->
+      <div class="subject-card">
+
+        <div class="icon">⚙️</div>
+
+        <h2>Microprocessor</h2>
+
+        <p>Faculty: Prof. Trivedi</p>
+
+        <p>Attendance: 88%</p>
+
+        <button [routerLink]="['/notes', 'Microprocessor']">
+          View Notes
+        </button>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>

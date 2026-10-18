@@ -1,0 +1,117 @@
+<div class="productivity-page">
+
+  <div class="glow glow1"></div>
+  <div class="glow glow2"></div>
+
+  <h1>🎯 Productivity</h1>
+  <p class="subtitle">Track your study performance and stay focused.</p>
+
+  <!-- STATS -->
+  <div class="stats">
+
+    <div class="card">
+      <span>📊</span>
+      <h3>Productivity</h3>
+      <strong>89%</strong>
+      <small>This week</small>
+    </div>
+
+    <div class="card">
+      <span>⏱️</span>
+      <h3>Study Hours</h3>
+      <strong>{{ studyHours }}h</strong>
+      <small>This week</small>
+    </div>
+
+    <div class="card">
+      <span>🎯</span>
+      <h3>Focus Score</h3>
+      <strong>{{ focusScore }}%</strong>
+      <small>Overall focus</small>
+    </div>
+
+    <div class="card">
+      <span>🚫</span>
+      <h3>Distractions</h3>
+      <strong>{{ distractions }}</strong>
+      <small>This week</small>
+    </div>
+
+  </div>
+
+  <!-- TIMER -->
+  <div class="timer-card">
+
+    <div>
+      <h2>⏱️ Study Focus Timer</h2>
+      <p>Start a focused study session.</p>
+    </div>
+
+    <div class="timer">
+      {{ time }}
+    </div>
+
+    <div class="buttons">
+      <button (click)="startTimer()">▶️ Start</button>
+      <button (click)="pauseTimer()">⏸️ Pause</button>
+      <button (click)="resetTimer()">↻ Reset</button>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="bottom">
+
+    <div class="panel">
+      <h2>📈 Weekly Progress</h2>
+
+      <div class="bar">
+        <span>Mon</span>
+        <div><i style="width:60%"></i></div>
+        <b>60%</b>
+      </div>
+
+      <div class="bar">
+        <span>Tue</span>
+        <div><i style="width:75%"></i></div>
+        <b>75%</b>
+      </div>
+
+      <div class="bar">
+        <span>Wed</span>
+        <div><i style="width:65%"></i></div>
+        <b>65%</b>
+      </div>
+
+      <div class="bar">
+        <span>Thu</span>
+        <div><i style="width:85%"></i></div>
+        <b>85%</b>
+      </div>
+
+      <div class="bar">
+        <span>Fri</span>
+        <div><i style="width:90%"></i></div>
+        <b>90%</b>
+      </div>
+
+    </div>
+
+    <div class="panel">
+      <h2>✅ Today's Tasks</h2>
+
+      <div class="task">☑️ Complete Software Engineering Report</div>
+      <div class="task">☑️ Practice Angular</div>
+      <div class="task">☐ Study Database Management</div>
+      <div class="task">☐ Complete Assignment</div>
+
+      <div class="progress">
+        <div></div>
+      </div>
+
+      <p>2 of 4 tasks completed</p>
+    </div>
+
+  </div>
+
+</div>

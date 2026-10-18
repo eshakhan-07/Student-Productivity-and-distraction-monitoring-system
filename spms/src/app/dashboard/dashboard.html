@@ -1,0 +1,106 @@
+<div class="focus-warning" *ngIf="tabChanged">
+  ⚠️ You left the SPMS tab! Please stay focused.
+</div>
+
+<video #camera autoplay muted playsinline class="camera-preview"></video>
+<div class="dashboard">
+
+  <aside class="sidebar">
+    <h2>🎓 SPMS</h2>
+    <p>Student Productivity</p>
+
+   <nav>
+  <a routerLink="/dashboard" class="active">🏠 Dashboard</a>
+  <a routerLink="/profile">👤 Profile</a>
+  <a routerLink="/subjects">📚 Subjects</a>
+  <a routerLink="/attendance">📊 Attendance</a>
+  <a routerLink="/productivity">🎯 Productivity</a>
+  <a routerLink="/assignments">📝 Assignments</a>
+  <a routerLink="/ai-camera">🎯 AI Focus Monitor</a>
+</nav>
+
+    <button class="logout" (click)="logout()">↪️ Logout</button>
+  </aside>
+
+  <main class="main">
+
+    <header>
+      <div>
+        <h1>Welcome, {{ user?.name || 'Student' }} 👋</h1>
+        <p>Let's stay focused and productive today.</p>
+      </div>
+
+      <div class="profile">
+        🎓
+        <span>{{ user?.enrollment || 'Student' }}</span>
+      </div>
+    </header>
+
+    <section class="cards">
+
+      <div class="card">
+        <span>📊</span>
+        <h3>Attendance</h3>
+        <strong>85%</strong>
+        <p>Overall attendance</p>
+      </div>
+
+      <div class="card">
+        <span>🎯</span>
+        <h3>Productivity</h3>
+        <strong>89%</strong>
+        <p>Weekly productivity</p>
+      </div>
+
+      <div class="card">
+        <span>⏱️</span>
+        <h3>Study Hours</h3>
+        <strong>24h</strong>
+        <p>This week</p>
+      </div>
+
+      <div class="card">
+        <span>📝</span>
+        <h3>Assignments</h3>
+        <strong>6</strong>
+        <p>Pending tasks</p>
+      </div>
+
+    </section>
+
+    <section class="welcome">
+      <h2>🚀 Student Productivity & Monitoring</h2>
+      <p>
+        Manage your attendance, study hours, assignments and productivity
+        from one smart dashboard.
+      </p>
+
+      <div class="info">
+        <div>
+          <h3>📚 Department</h3>
+          <p>{{ user?.department || 'CSE' }}</p>
+        </div>
+
+        <div>
+          <h3>🎓 Semester</h3>
+          <p>{{ user?.semester || '5th Semester' }}</p>
+        </div>
+
+        <div>
+          <h3>✉️ Email</h3>
+          <p>{{ user?.email || 'Student Email' }}</p>
+        </div>
+      </div>
+      <div class="tasks">
+      <h2>Today's Tasks</h2>
+
+      <div>✔️ Complete Software Engineering Report</div>
+      <div>✔️ Prepare DBMS Practical</div>
+      <div>✔️ Practice Java Programming</div>
+      <div>✔️ Revise Advanced Web Technology</div>
+    </div>
+    </section>
+
+  </main>
+
+</div>

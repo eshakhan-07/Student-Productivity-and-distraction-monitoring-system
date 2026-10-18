@@ -1,0 +1,87 @@
+<div class="profile-page">
+
+  <aside class="sidebar">
+    <h2>🎓 SPMS</h2>
+
+    <a routerLink="/dashboard">🏠 Dashboard</a>
+    <a class="active" routerLink="/profile">👤 Profile</a>
+    <a routerLink="/subjects">📚 Subjects</a>
+    <a routerLink="/attendance">🗓️ Attendance</a>
+    <a routerLink="/productivity">📈 Productivity</a>
+    <a (click)="logout()" style="cursor: pointer;">🚪 Logout</a>
+  </aside>
+
+  <main>
+
+    <h1>Student Profile</h1>
+
+    <div class="profile-card">
+
+      <div class="avatar">👤</div>
+
+      <h2>{{ user?.name || 'Student Profile' }}</h2>
+
+      <p>{{ user?.department || 'Computer Science Engineering' }}</p>
+
+      <div *ngIf="!isEditing" class="details">
+
+        <div class="detail-box">
+          <b>Enrollment</b>
+          <span>{{ user?.enrollment || 'Not provided' }}</span>
+        </div>
+
+        <div class="detail-box">
+          <b>Semester</b>
+          <span>{{ user?.semester || 'Not provided' }}</span>
+        </div>
+
+        <div class="detail-box">
+          <b>Email</b>
+          <span>{{ user?.email || 'Not provided' }}</span>
+        </div>
+
+        <div class="detail-box">
+          <b>Mobile</b>
+          <span>{{ user?.mobile || 'Not provided' }}</span>
+        </div>
+
+      </div>
+
+      <!-- EDIT PROFILE FORM -->
+      <div *ngIf="isEditing" class="details" style="grid-template-columns: 1fr; text-align: left;">
+        <div class="detail-box">
+          <b>Full Name</b>
+          <input type="text" [(ngModel)]="editData.name" style="width: 100%; padding: 8px; border-radius: 8px; border: none; margin-top: 5px; box-sizing: border-box;">
+        </div>
+
+        <div class="detail-box">
+          <b>Department</b>
+          <input type="text" [(ngModel)]="editData.department" style="width: 100%; padding: 8px; border-radius: 8px; border: none; margin-top: 5px; box-sizing: border-box;">
+        </div>
+
+        <div class="detail-box">
+          <b>Semester</b>
+          <input type="text" [(ngModel)]="editData.semester" style="width: 100%; padding: 8px; border-radius: 8px; border: none; margin-top: 5px; box-sizing: border-box;">
+        </div>
+
+        <div class="detail-box">
+          <b>Mobile Number</b>
+          <input type="text" [(ngModel)]="editData.mobile" style="width: 100%; padding: 8px; border-radius: 8px; border: none; margin-top: 5px; box-sizing: border-box;">
+        </div>
+      </div>
+
+      <div style="margin-top: 25px; display: flex; justify-content: center; gap: 15px;">
+        <button *ngIf="!isEditing" (click)="toggleEdit()">✏️ Edit Profile</button>
+        <button *ngIf="isEditing" (click)="saveProfile()" [disabled]="saving">
+          {{ saving ? 'Saving...' : '💾 Save to Database' }}
+        </button>
+        <button *ngIf="isEditing" (click)="toggleEdit()" style="background: rgba(255,255,255,0.2);">
+          Cancel
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+</div>

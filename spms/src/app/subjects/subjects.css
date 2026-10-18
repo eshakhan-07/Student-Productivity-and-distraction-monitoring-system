@@ -1,0 +1,69 @@
+.subjects-page {
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
+  color: white;
+}
+
+.sidebar {
+  width: 240px;
+  padding: 25px 15px;
+  background: rgba(2, 6, 23, 0.8);
+}
+
+.sidebar h2 {
+  color: #38bdf8;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 14px;
+  margin: 8px 0;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.sidebar .active {
+  background: #2563eb;
+}
+
+main {
+  flex: 1;
+  padding: 35px;
+}
+
+.subjects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.subject-card {
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #334155;
+}
+
+.subject-card .icon {
+  font-size: 35px;
+}
+
+.subject-card h2 {
+  color: white;
+}
+
+.subject-card p {
+  color: #cbd5e1;
+}
+
+.subject-card button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,156 @@
+<div class="register-page">
+
+  <!-- 3D Background -->
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <div class="register-container">
+
+    <!-- LEFT SIDE -->
+    <div class="register-card">
+
+      <div class="logo">🎓</div>
+
+      <h1>Create Account</h1>
+      <p class="subtitle">Student Productivity & Monitoring System</p>
+
+      <!-- IMPORTANT -->
+      <form (ngSubmit)="register()">
+
+        <div class="input-box">
+          <span>👤</span>
+          <input
+            type="text"
+            [(ngModel)]="name"
+            name="name"
+            placeholder="Full Name">
+        </div>
+
+        <div class="input-box">
+          <span>🎓</span>
+          <input
+            type="text"
+            [(ngModel)]="enrollment"
+            name="enrollment"
+            placeholder="Enrollment Number">
+        </div>
+
+        <div class="input-box">
+          <span>🏫</span>
+          <select [(ngModel)]="department" name="department">
+            <option value="">Select Department</option>
+            <option>Computer Science & Engineering</option>
+            <option>Information Technology</option>
+            <option>AI & ML</option>
+            <option>Cyber Security</option>
+            <option>Data Science</option>
+          </select>
+        </div>
+
+        <div class="input-box">
+          <span>📚</span>
+          <select [(ngModel)]="semester" name="semester">
+            <option value="">Semester</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+          </select>
+        </div>
+
+        <div class="input-box">
+          <span>📧</span>
+          <input
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="College Email">
+        </div>
+
+        <div class="input-box">
+          <span>📱</span>
+          <input
+            type="tel"
+            [(ngModel)]="mobile"
+            name="mobile"
+            placeholder="Mobile Number">
+        </div>
+
+        <div class="input-box">
+          <span>🔒</span>
+          <input
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="Password">
+        </div>
+
+        <div class="input-box">
+          <span>🔒</span>
+          <input
+            type="password"
+            [(ngModel)]="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm Password">
+        </div>
+
+        <!-- CREATE ACCOUNT -->
+        <button type="submit">
+          Create Account
+        </button>
+
+      </form>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="info-section">
+
+      <h2>Join SPMS 🚀</h2>
+
+      <p>
+        Manage attendance, assignments, study hours,
+        productivity and distractions from one dashboard.
+      </p>
+
+      <div class="feature">
+        <span>📊</span>
+        <div>
+          <h3>Analytics</h3>
+          <p>Track your academic growth.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <span>📖</span>
+        <div>
+          <h3>Study Planner</h3>
+          <p>Organize your study schedule.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <span>🎯</span>
+        <div>
+          <h3>Focus</h3>
+          <p>Reduce distractions.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <span>🏆</span>
+        <div>
+          <h3>Achievements</h3>
+          <p>Unlock performance badges.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

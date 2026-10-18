@@ -1,0 +1,40 @@
+.monitor {
+  min-height: 100vh;
+  padding: 30px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #030712, #172554, #312e81);
+  font-family: Arial, sans-serif;
+}
+
+video {
+  width: 100%;
+  max-width: 500px;
+  border: 2px solid #818cf8;
+  border-radius: 15px;
+  background: #111827;
+}
+
+button {
+  margin: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #6366f1;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.stats {
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 400px;
+  border: 1px solid #6366f1;
+  border-radius: 12px;
+  background: #ffffff12;
+}

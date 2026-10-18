@@ -1,0 +1,57 @@
+<div class="attendance-page">
+
+  <aside class="sidebar">
+    <h2>🎓 SPMS</h2>
+
+    <a routerLink="/dashboard">🏠 Dashboard</a>
+    <a routerLink="/profile">👤 Profile</a>
+    <a routerLink="/subjects">📚 Subjects</a>
+    <a class="active" routerLink="/attendance">🗓️ Attendance</a>
+    <a routerLink="/productivity">📈 Productivity</a>
+    <a routerLink="/assignments">📝 Assignments</a>
+    <a routerLink="/login">🚪 Logout</a>
+  </aside>
+
+  <main>
+
+    <h1>🗓️ Attendance</h1>
+    <p class="subtitle">Track your monthly subject-wise attendance</p>
+
+    <select [(ngModel)]="selectedMonth">
+      <option>January</option>
+      <option>February</option>
+      <option>March</option>
+      <option>April</option>
+      <option>May</option>
+      <option>June</option>
+      <option>July</option>
+      <option>August</option>
+      <option>September</option>
+      <option>October</option>
+      <option>November</option>
+      <option>December</option>
+    </select>
+
+    <div class="overall">
+      <h2>{{ selectedMonth }} Attendance</h2>
+      <strong>91%</strong>
+      <p>Overall Attendance</p>
+    </div>
+
+    <div class="table-box">
+
+  <div class="row heading">
+    <span>Subject</span>
+    <span>Attendance</span>
+  </div>
+
+  <div class="row" *ngFor="let sub of subjects">
+    <span>{{ sub.name }}</span>
+    <span class="percent">{{ sub.percent }}%</span>
+  </div>
+
+</div>
+
+  </main>
+
+</div>

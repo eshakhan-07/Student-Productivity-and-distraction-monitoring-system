@@ -1,0 +1,114 @@
+<div class="login-page">
+
+  <!-- 3D Background -->
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <div class="login-container">
+
+    <!-- LEFT -->
+    <div class="login-card">
+
+      <div class="logo">🎓</div>
+
+      <h1>SPMS</h1>
+      <p class="subtitle">Student Productivity & Monitoring System</p>
+
+      <h2>Welcome Back 👋</h2>
+      <p class="text">Login to continue your productivity journey.</p>
+
+      <form (ngSubmit)="login()">
+
+        <div class="input-box">
+          <span>📧</span>
+          <input
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="College Email">
+        </div>
+
+        <div class="input-box">
+          <span>🔒</span>
+          <input
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="Password">
+        </div>
+
+        <div class="options">
+          <label>
+            <input type="checkbox">
+            Remember Me
+          </label>
+
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit">↪️ Login</button>
+
+      </form>
+
+      <p class="create">
+        Don't have an account?
+        <a routerLink="/register">Create Account</a>
+      </p>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="info-section">
+
+      <span class="badge">⚡ AI Powered Portal</span>
+
+      <h1>Learn Smart<br>
+        <span>Stay Focused</span>
+      </h1>
+
+      <p>
+        Monitor your academic performance, improve your productivity
+        and reduce distractions with SPMS.
+      </p>
+
+      <div class="features">
+
+        <div class="feature">
+          📊
+          <div>
+            <h3>Analytics</h3>
+            <p>Track your weekly progress.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          🎯
+          <div>
+            <h3>Focus</h3>
+            <p>Reduce distractions.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          🏆
+          <div>
+            <h3>Top Performer</h3>
+            <p>Keep learning.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          💡
+          <div>
+            <h3>Achievements</h3>
+            <p>Earn badges for consistency.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="notes-page">
+
+  <h1>📚 {{ subject }}</h1>
+
+  <div class="unit" *ngFor="let unit of units">
+
+    <h2>{{ unit }}</h2>
+
+    <p>
+      Notes and important topics for {{ subject }} - {{ unit }}.
+    </p>
+
+    <button (click)="openVideo(unit)">
+      ▶️ Video Lecture
+    </button>
+
+  </div>
+
+</div>
