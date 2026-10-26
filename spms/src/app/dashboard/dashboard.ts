@@ -1,8 +1,8 @@
-import { RouterLink } from '@angular/router';
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { RouterLink, Router } from '@angular/router';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { AuthService, UserProfile } from '../services/auth.service';
+import { CameraService } from '../camera.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +11,7 @@ import { AuthService, UserProfile } from '../services/auth.service';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
-export class Dashboard implements OnInit, OnDestroy {
-
+export class Dashboard implements OnInit, AfterViewInit, OnDestroy {
   user: UserProfile | null = null;
 
   @ViewChild('camera') camera!: ElementRef<HTMLVideoElement>;
@@ -22,16 +21,14 @@ export class Dashboard implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private cameraService: CameraService
   ) {}
 
   ngOnInit() {
-
     this.user = this.authService.getCurrentUser();
 
-    // Backend se profile refresh
     if (this.user?._id || this.user?.email) {
-
       const identifier = this.user._id || this.user.email;
 
       this.authService.getProfile(identifier).subscribe({
@@ -41,74 +38,48 @@ export class Dashboard implements OnInit, OnDestroy {
             this.authService.setCurrentUser(res.user);
           }
         },
-
         error: (err) => {
-          console.warn('Could not sync user profile from server:', err);
+          console.warn('Could not sync profile:', err);
         }
       });
     }
 
-    // Tab switch detection
     document.addEventListener('visibilitychange', this.checkTab);
   }
 
-  ngAfterViewInit() {
-    this.startCamera();
-  }
-
-  async startCamera() {
-
+  async ngAfterViewInit() {
     try {
+      this.stream = await this.cameraService.startCamera();
 
-      this.stream = await navigator.mediaDevices.getUserMedia({
-        video: true
-      });
-
-      this.camera.nativeElement.srcObject = this.stream;
-
+      if (this.camera?.nativeElement) {
+        this.camera.nativeElement.srcObject = this.stream;
+        await this.camera.nativeElement.play();
+      }
     } catch (error) {
-
       console.log('Camera permission denied:', error);
-
     }
   }
 
   checkTab = () => {
-
     if (document.hidden) {
-
       this.tabChanged = true;
-
       alert('⚠️ Distraction detected! Please return to SPMS.');
-
     } else {
-
       this.tabChanged = false;
     }
   };
 
   logout() {
-
-    this.stopCamera();
+    this.cameraService.stopCamera();
+    this.stream = null;
     this.authService.logout();
-
-  }
-
-  stopCamera() {
-
-    if (this.stream) {
-
-      this.stream.getTracks().forEach(track => track.stop());
-
-      this.stream = null;
-    }
+    this.router.navigate(['/login']);
   }
 
   ngOnDestroy() {
-
     document.removeEventListener('visibilitychange', this.checkTab);
 
-    this.stopCamera();
-
+    // Camera ko yahan stop nahi karna hai.
+    // Shared service stream ko active rakhegi.
   }
 }

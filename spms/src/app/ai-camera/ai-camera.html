@@ -1,20 +1,23 @@
 <div class="monitor">
+
   <h1>🎯 AI Focus Monitor</h1>
+  <p>{{ message }}</p>
 
   <video #video autoplay muted playsinline></video>
 
-  <p>{{ message }}</p>
+  <div class="buttons">
+    <button (click)="start()" [disabled]="running">
+      Start Camera
+    </button>
 
-  <button (click)="startCamera()" [disabled]="running">
-    Start Camera
-  </button>
-
-  <button (click)="stopCamera()" [disabled]="!running">
-    Stop Camera
-  </button>
+    <button (click)="stop()">
+      Stop Camera
+    </button>
+  </div>
 
   <div class="stats">
     <h3>Focus Score: {{ focusScore }}%</h3>
-    <h3>Warnings: {{ warnings }}</h3>
+    <h3>Total Warnings: {{ warnings }}</h3>
   </div>
+
 </div>
