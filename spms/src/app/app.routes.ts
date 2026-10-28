@@ -7,7 +7,9 @@ import { Subjects } from './subjects/subjects';
 import { Notes } from './notes/notes';
 import { Attendance } from './attendance/attendance';
 import { Productivity } from './productivity/productivity';
+import { Assignments } from './assignments/assignments';
 import { AiCameraComponent } from './ai-camera/ai-camera';
+import { Settings } from './settings/settings';
 
 export const routes: Routes = [
   { path: 'register', component: Register },
@@ -18,6 +20,8 @@ export const routes: Routes = [
   { path: 'notes/:subject', component: Notes },
   { path: 'attendance', component: Attendance },
   { path: 'productivity', component: Productivity },
+  { path: 'assignments', component: Assignments },
   { path: 'ai-camera', component: AiCameraComponent },
+  { path: 'settings', component: Settings },
   { path: '', redirectTo: 'register', pathMatch: 'full' }
 ];

@@ -1,5 +1,24 @@
 <div class="productivity-page">
 
+  <aside class="sidebar">
+    <h2>🎓 SPMS</h2>
+    <p>Student Productivity</p>
+
+    <nav>
+      <a routerLink="/dashboard" class="active">🏠 Dashboard</a>
+      <a routerLink="/profile">👤 Profile</a>
+      <a routerLink="/subjects">📚 Subjects</a>
+      <a routerLink="/attendance">📊 Attendance</a>
+      <a routerLink="/productivity" class="active">🎯 Productivity</a>
+      <a routerLink="/assignments">📝 Assignments</a>
+      <a routerLink="/ai-camera">🎯 AI Focus Monitor</a>
+      <a routerLink="/settings">⚙️ Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="productivity-page">
+
   <div class="glow glow1"></div>
   <div class="glow glow2"></div>
 
@@ -52,10 +71,26 @@
     </div>
 
     <div class="buttons">
-      <button (click)="startTimer()">▶️ Start</button>
-      <button (click)="pauseTimer()">⏸️ Pause</button>
-      <button (click)="resetTimer()">↻ Reset</button>
-    </div>
+  <button
+    type="button"
+    (click)="startTimer()"
+    [disabled]="isRunning">
+    ▶️ Start
+  </button>
+
+  <button
+    type="button"
+    (click)="pauseTimer()"
+    [disabled]="!isRunning">
+    ⏸️ Pause
+  </button>
+
+  <button
+    type="button"
+    (click)="resetTimer()">
+    ↻ Reset
+  </button>
+</div>
 
   </div>
 
@@ -113,5 +148,6 @@
     </div>
 
   </div>
-
+    </div>
+</main>
 </div>

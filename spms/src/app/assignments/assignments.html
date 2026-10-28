@@ -1,111 +1,61 @@
-<div class="assignments-page">
+<div class="dashboard">
+  <aside class="sidebar">
+    <h2>🎓 SPMS</h2>
+    <p>Student Productivity</p>
 
-  <div class="page-header">
-    <div>
-      <span class="eyebrow">STUDENT WORKSPACE</span>
-      <h1>My Assignments <span>✦</span></h1>
-      <p>Manage your tasks, track deadlines and stay productive.</p>
-    </div>
+    <nav>
+      <a routerLink="/dashboard" class="active">🏠 Dashboard</a>
+      <a routerLink="/profile">👤 Profile</a>
+      <a routerLink="/subjects">📚 Subjects</a>
+      <a routerLink="/attendance">📊 Attendance</a>
+      <a routerLink="/productivity">🎯 Productivity</a>
+      <a routerLink="/assignments" class="active">📝 Assignments</a>
+      <a routerLink="/ai-camera">🎯 AI Focus Monitor</a>
+      <a routerLink="/settings">⚙️ Settings</a>
+    </nav>
+  </aside>
 
-    <div class="header-icon">📝</div>
-  </div>
+  <main class="main">
+    <h1>📝 My Assignments</h1>
+    <p>Manage your assignments and deadlines.</p>
 
-  <div class="stats-grid">
-    <div class="stat-card total">
-      <div class="stat-top">
-        <span>Total Assignments</span>
-        <span class="stat-icon">📚</span>
-      </div>
-      <h2>{{ assignments.length }}</h2>
-      <small>All academic tasks</small>
-    </div>
+    <form (ngSubmit)="addTask()">
+      <input
+        name="title"
+        [(ngModel)]="title"
+        placeholder="Assignment Title"
+        required>
 
-    <div class="stat-card pending">
-      <div class="stat-top">
-        <span>Pending</span>
-        <span class="stat-icon">⏳</span>
-      </div>
-      <h2>{{ pendingCount }}</h2>
-      <small>Waiting to start</small>
-    </div>
+      <input
+        name="subject"
+        [(ngModel)]="subject"
+        placeholder="Subject Name"
+        required>
 
-    <div class="stat-card progress">
-      <div class="stat-top">
-        <span>In Progress</span>
-        <span class="stat-icon">⚡</span>
-      </div>
-      <h2>{{ progressCount }}</h2>
-      <small>Currently working</small>
-    </div>
+      <input
+        type="date"
+        name="dueDate"
+        [(ngModel)]="dueDate"
+        required>
 
-    <div class="stat-card completed">
-      <div class="stat-top">
-        <span>Completed</span>
-        <span class="stat-icon">✓</span>
-      </div>
-      <h2>{{ completedCount }}</h2>
-      <small>Successfully finished</small>
-    </div>
-  </div>
+      <button type="submit">+ Add Assignment</button>
+    </form>
 
-  <div class="assignment-section">
-    <div class="section-heading">
+    <h2>Assignment List</h2>
+
+    <p *ngIf="tasks.length === 0">No assignments added yet.</p>
+
+    <div class="task" *ngFor="let task of tasks">
       <div>
-        <h2>Assignment List</h2>
-        <p>Keep track of your academic progress.</p>
-      </div>
-      <span class="task-count">{{ assignments.length }} Tasks</span>
-    </div>
-
-    <div class="assignment-card" *ngFor="let a of assignments">
-
-      <div class="task-icon">📄</div>
-
-      <div class="task-details">
-        <h3>{{ a.title }}</h3>
-        <p>{{ a.subject }}</p>
-        <small>📅 Due date: {{ a.dueDate }}</small>
+        <h3>{{ task.title }}</h3>
+        <p>📚 {{ task.subject }}</p>
+        <p>📅 Due: {{ task.dueDate }}</p>
+        <p>Status: {{ task.done ? 'Completed' : 'Pending' }}</p>
       </div>
 
-      <div class="task-actions">
-        <span class="priority" [ngClass]="a.priority.toLowerCase()">
-          {{ a.priority }} Priority
-        </span>
-
-        <span class="status" [ngClass]="a.status.toLowerCase().replace(' ', '-')">
-          {{ a.status }}
-        </span>
-
-        <button
-          *ngIf="a.status === 'Pending'"
-          class="start-btn"
-          (click)="startAssignment(a.id)">
-          Start Assignment
-        </button>
-
-        <button
-          *ngIf="a.status === 'In Progress'"
-          class="complete-btn"
-          (click)="markCompleted(a.id)">
-          ✓ Mark Complete
-        </button>
-      </div>
-
+      <button type="button" (click)="task.done = !task.done">
+        {{ task.done ? 'Reopen' : 'Complete' }}
+      </button>
     </div>
-
-    <div class="empty-state" *ngIf="assignments.length === 0">
-      <span>📂</span>
-      <h3>No assignments found</h3>
-      <p>Your assignments will appear here.</p>
-    </div>
-  </div>
-
-  <div class="motivation-card">
-    <div class="motivation-icon">🎯</div>
-    <div>
-      <h3>Stay focused, stay productive!</h3>
-      <p>Complete your assignments on time and keep moving towards your goals.</p>
-    </div>
-  </div>
-
+  </main>
 </div>

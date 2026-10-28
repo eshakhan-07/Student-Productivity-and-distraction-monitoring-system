@@ -212,3 +212,132 @@ button:hover {
     grid-template-columns: 1fr;
   }
 }
+.buttons button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.timer {
+  min-width: 120px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 900px) {
+  .timer-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+/* Productivity page layout */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: #020617;
+  color: white;
+}
+
+/* Left vertical sidebar */
+.sidebar {
+  width: 270px;
+  min-width: 270px;
+  min-height: 100vh;
+  padding: 28px 20px;
+  background: rgba(8, 15, 35, 0.98);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  color: #42d9ff;
+  margin: 0 0 8px;
+}
+
+.sidebar p {
+  color: #a8bfd9;
+  margin-bottom: 30px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 14px 12px;
+  color: #dbeafe;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: 0.25s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: linear-gradient(135deg, #087cf0, #155eef);
+  color: white;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.productivity-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 35px;
+  color: white;
+  background:
+    radial-gradient(circle at 80% 10%, #07598555, transparent 30%),
+    radial-gradient(circle at 10% 90%, #4c1d9555, transparent 30%),
+    linear-gradient(135deg, #020617, #071b3d, #0b2d5c);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Keep content above decorative glow */
+.productivity-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.productivity-page .glow {
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+  }
+
+  .sidebar nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .productivity-page {
+    padding: 22px;
+  }
+}

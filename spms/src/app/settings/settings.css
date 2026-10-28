@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #07152e;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  padding: 25px 15px;
+  background: #020817;
+}
+
+.sidebar h2 {
+  color: #38d9ff;
+}
+
+.sidebar p {
+  color: #94a3b8;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.sidebar a {
+  padding: 13px;
+  color: #dbeafe;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #2563eb;
+  color: white;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 35px;
+  background: linear-gradient(135deg, #07152e, #102b50);
+}
+
+.subtitle {
+  color: #a8bfd9;
+  margin-bottom: 25px;
+}
+
+.settings-card {
+  max-width: 750px;
+  padding: 25px;
+  margin-bottom: 20px;
+  background: #122440;
+  border: 1px solid #294566;
+  border-radius: 14px;
+}
+
+.settings-card h2 {
+  margin-top: 0;
+  margin-bottom: 22px;
+  color: #67e8f9;
+}
+
+.settings-card label {
+  display: block;
+  margin: 15px 0 8px;
+}
+
+.settings-card input:not([type="checkbox"]),
+.settings-card select {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  color: white;
+  background: #07152e;
+  border: 1px solid #365274;
+  border-radius: 7px;
+}
+
+.settings-card select option {
+  background: #07152e;
+  color: white;
+}
+
+.check-row {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-row input {
+  width: 17px;
+  height: 17px;
+  accent-color: #2563eb;
+}
+
+button {
+  padding: 12px 20px;
+  color: white;
+  background: linear-gradient(120deg, #0891b2, #2563eb);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.success {
+  color: #4ade80;
+  margin-top: 15px;
+}
+
+@media (max-width: 700px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .main {
+    padding: 20px;
+  }
+}
+/* Light Theme */
+body.light-theme {
+  background: #f1f5f9 !important;
+  color: #1e293b !important;
+}
+
+body.light-theme .dashboard,
+body.light-theme .main,
+body.light-theme .settings-page {
+  background: #f1f5f9 !important;
+  color: #1e293b !important;
+}
+
+body.light-theme .sidebar {
+  background: #ffffff !important;
+  color: #1e293b !important;
+}
+
+body.light-theme .sidebar a {
+  color: #334155 !important;
+}
+
+body.light-theme .setting-card {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  border: 1px solid #cbd5e1;
+}
+
+body.light-theme input,
+body.light-theme select {
+  background: #f8fafc !important;
+  color: #1e293b !important;
+  border: 1px solid #cbd5e1;
+}
+
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme p,
+body.light-theme label {
+  color: #1e293b;
+}

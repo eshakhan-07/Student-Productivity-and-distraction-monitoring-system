@@ -1,0 +1,67 @@
+<div class="dashboard">
+
+  <aside class="sidebar">
+    <h2>🎓 SPMS</h2>
+    <p>Student Productivity</p>
+
+    <nav>
+      <a routerLink="/dashboard">🏠 Dashboard</a>
+      <a routerLink="/profile">👤 Profile</a>
+      <a routerLink="/subjects">📚 Subjects</a>
+      <a routerLink="/attendance">📊 Attendance</a>
+      <a routerLink="/productivity">🎯 Productivity</a>
+      <a routerLink="/assignments">📝 Assignments</a>
+      <a routerLink="/ai-camera">🎯 AI Focus Monitor</a>
+      <a routerLink="/settings" class="active">⚙️ Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1>⚙️ Settings</h1>
+    <p class="subtitle">Manage your SPMS preferences.</p>
+
+    <section class="settings-card">
+      <h2>👤 Profile Settings</h2>
+
+      <label for="name">Name</label>
+      <input id="name" name="name" [(ngModel)]="name"
+        placeholder="Enter your name">
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email"
+        [(ngModel)]="email" placeholder="Enter your email">
+    </section>
+
+    <div class="setting-card">
+  <h3>Appearance</h3>
+
+  <label for="theme">Choose Theme</label>
+
+  <select
+    id="theme"
+    [(ngModel)]="theme"
+    (change)="changeTheme()">
+    <option value="Dark">Dark Mode</option>
+    <option value="Light">Light Mode</option>
+  </select>
+
+  <p>Choose the theme you prefer for SPMS.</p>
+</div>
+
+    <section class="settings-card">
+      <h2>🔔 Notifications</h2>
+
+      <label class="check-row">
+        <input type="checkbox" name="notifications"
+          [(ngModel)]="notifications">
+        Enable notifications
+      </label>
+    </section>
+
+    <button type="button" (click)="saveSettings()">
+      💾 Save Settings
+    </button>
+
+    <p class="success" *ngIf="message">{{ message }}</p>
+  </main>
+</div>
