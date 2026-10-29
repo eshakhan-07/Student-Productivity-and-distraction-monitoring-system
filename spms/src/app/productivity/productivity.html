@@ -1,153 +1,140 @@
-<div class="productivity-page">
+<div class="dashboard">
 
+  <!-- Sidebar -->
   <aside class="sidebar">
-    <h2>🎓 SPMS</h2>
-    <p>Student Productivity</p>
+    <div class="logo">
+      <span class="logo-icon">🎓</span>
+      <div>
+        <h2>SPMS</h2>
+        <p>Student Portal</p>
+      </div>
+    </div>
 
-    <nav>
-      <a routerLink="/dashboard" class="active">🏠 Dashboard</a>
+    <nav class="nav-menu">
+      <a routerLink="/dashboard">🏠 Dashboard</a>
       <a routerLink="/profile">👤 Profile</a>
       <a routerLink="/subjects">📚 Subjects</a>
-      <a routerLink="/attendance">📊 Attendance</a>
-      <a routerLink="/productivity" class="active">🎯 Productivity</a>
+      <a routerLink="/attendance">📅 Attendance</a>
+      <a routerLink="/productivity" class="active">⏱️ Productivity</a>
       <a routerLink="/assignments">📝 Assignments</a>
       <a routerLink="/ai-camera">🎯 AI Focus Monitor</a>
       <a routerLink="/settings">⚙️ Settings</a>
     </nav>
+
+    <div class="sidebar-bottom">
+      <p>Stay focused. Keep growing.</p>
+      <span>© SPMS</span>
+    </div>
   </aside>
 
-  <main class="main">
-    <div class="productivity-page">
+  <!-- Main Content -->
+  <main class="main-content">
 
-  <div class="glow glow1"></div>
-  <div class="glow glow2"></div>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">STUDENT PRODUCTIVITY</p>
+        <h1>Productivity Tracker</h1>
+        <p class="subtitle">Build better habits, one study session at a time.</p>
+      </div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        Focus Workspace
+      </div>
+    </header>
 
-  <h1>🎯 Productivity</h1>
-  <p class="subtitle">Track your study performance and stay focused.</p>
-
-  <!-- STATS -->
-  <div class="stats">
-
-    <div class="card">
-      <span>📊</span>
-      <h3>Productivity</h3>
-      <strong>89%</strong>
-      <small>This week</small>
-    </div>
-
-    <div class="card">
-      <span>⏱️</span>
-      <h3>Study Hours</h3>
-      <strong>{{ studyHours }}h</strong>
-      <small>This week</small>
-    </div>
-
-    <div class="card">
-      <span>🎯</span>
-      <h3>Focus Score</h3>
-      <strong>{{ focusScore }}%</strong>
-      <small>Overall focus</small>
-    </div>
-
-    <div class="card">
-      <span>🚫</span>
-      <h3>Distractions</h3>
-      <strong>{{ distractions }}</strong>
-      <small>This week</small>
-    </div>
-
-  </div>
-
-  <!-- TIMER -->
-  <div class="timer-card">
-
-    <div>
-      <h2>⏱️ Study Focus Timer</h2>
-      <p>Start a focused study session.</p>
-    </div>
-
-    <div class="timer">
-      {{ time }}
-    </div>
-
-    <div class="buttons">
-  <button
-    type="button"
-    (click)="startTimer()"
-    [disabled]="isRunning">
-    ▶️ Start
-  </button>
-
-  <button
-    type="button"
-    (click)="pauseTimer()"
-    [disabled]="!isRunning">
-    ⏸️ Pause
-  </button>
-
-  <button
-    type="button"
-    (click)="resetTimer()">
-    ↻ Reset
-  </button>
-</div>
-
-  </div>
-
-  <!-- BOTTOM -->
-  <div class="bottom">
-
-    <div class="panel">
-      <h2>📈 Weekly Progress</h2>
-
-      <div class="bar">
-        <span>Mon</span>
-        <div><i style="width:60%"></i></div>
-        <b>60%</b>
+    <!-- Summary Cards -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-top">
+          <span>Weekly Study Hours</span>
+          <span class="stat-icon blue">📚</span>
+        </div>
+        <h2>{{ studyHours }} hrs</h2>
+        <p>Your total study time this week</p>
       </div>
 
-      <div class="bar">
-        <span>Tue</span>
-        <div><i style="width:75%"></i></div>
-        <b>75%</b>
+      <div class="stat-card">
+        <div class="stat-top">
+          <span>Focus Score</span>
+          <span class="stat-icon purple">🎯</span>
+        </div>
+        <h2>{{ focusScore }}%</h2>
+        <p>Your current focus performance</p>
       </div>
 
-      <div class="bar">
-        <span>Wed</span>
-        <div><i style="width:65%"></i></div>
-        <b>65%</b>
+      <div class="stat-card">
+        <div class="stat-top">
+          <span>Distractions</span>
+          <span class="stat-icon orange">🔔</span>
+        </div>
+        <h2>{{ distractions }}</h2>
+        <p>Distractions recorded this week</p>
+      </div>
+    </section>
+
+    <!-- Timer -->
+    <section class="timer-card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">FOCUS SESSION</p>
+          <h2>Study Focus Timer</h2>
+          <p class="subtitle">Start your timer and focus on one task.</p>
+        </div>
+        <span class="timer-icon">⏱️</span>
       </div>
 
-      <div class="bar">
-        <span>Thu</span>
-        <div><i style="width:85%"></i></div>
-        <b>85%</b>
+      <div class="timer-display">
+        <span class="timer-time">{{ time }}</span>
+        <span class="timer-label">
+          {{ isRunning ? 'SESSION IN PROGRESS' : 'READY TO FOCUS' }}
+        </span>
       </div>
 
-      <div class="bar">
-        <span>Fri</span>
-        <div><i style="width:90%"></i></div>
-        <b>90%</b>
+      <div class="timer-actions">
+        <button
+          type="button"
+          class="btn btn-start"
+          (click)="startTimer()"
+          [disabled]="isRunning">
+          ▶️ Start
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-pause"
+          (click)="pauseTimer()"
+          [disabled]="!isRunning">
+          Ⅱ Pause
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-reset"
+          (click)="resetTimer()">
+          ↻ Reset
+        </button>
       </div>
 
-    </div>
+      <p class="timer-note">
+        Tip: Keep your phone away and concentrate on one task.
+      </p>
+    </section>
 
-    <div class="panel">
-      <h2>✅ Today's Tasks</h2>
-
-      <div class="task">☑️ Complete Software Engineering Report</div>
-      <div class="task">☑️ Practice Angular</div>
-      <div class="task">☐ Study Database Management</div>
-      <div class="task">☐ Complete Assignment</div>
-
-      <div class="progress">
-        <div></div>
+    <!-- Focus Tips -->
+    <section class="tips-card">
+      <div class="tips-icon">💡</div>
+      <div>
+        <h3>Today's Productivity Tip</h3>
+        <p>
+          Study for 25 minutes, then take a 5-minute break.
+          Small, consistent sessions can help you stay focused.
+        </p>
       </div>
+    </section>
 
-      <p>2 of 4 tasks completed</p>
-    </div>
+    <footer class="page-footer">
+      Designed for smarter learning · SPMS
+    </footer>
 
-  </div>
-    </div>
-</main>
+  </main>
 </div>
