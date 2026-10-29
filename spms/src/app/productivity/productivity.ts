@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-productivity',
@@ -9,7 +9,13 @@ import { Component, OnDestroy } from '@angular/core';
 export class Productivity implements OnDestroy {
   seconds = 0;
   timer: any;
-
+  studyHours = 24;
+  focusScore = 89;
+  distractions = 6;
+constructor(private cdr: ChangeDetectorRef) {}
+  get isRunning(): boolean {
+  return this.timer !== null;
+}
   get time(): string {
     const m = Math.floor(this.seconds / 60);
     const s = this.seconds % 60;
@@ -23,6 +29,7 @@ export class Productivity implements OnDestroy {
 
     this.timer = setInterval(() => {
       this.seconds++;
+      this.cdr.detectChanges();
     }, 1000);
   }
 
