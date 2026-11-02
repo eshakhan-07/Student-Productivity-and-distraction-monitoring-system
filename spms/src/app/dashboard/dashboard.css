@@ -167,7 +167,6 @@ header p {
   box-shadow: 0 0 20px rgba(0, 200, 255, .4);
   z-index: 1000;
 }
-
 /* Tab Switch Warning */
 .focus-warning {
   position: fixed;
