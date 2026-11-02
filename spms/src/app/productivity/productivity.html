@@ -71,75 +71,57 @@
       </div>
     </section>
 
-    <!-- AI Focus Monitor -->
+ <!-- AI Focus Monitor -->
 <section class="timer-card">
   <div class="section-heading">
     <div>
       <p class="eyebrow">AI POWERED</p>
       <h2>AI Focus Monitor</h2>
-      <p class="subtitle">
-        Monitor your focus while studying.
-      </p>
+      <p class="subtitle">{{ message }}</p>
     </div>
     <span class="timer-icon">🎯</span>
   </div>
 
-  <button
-    type="button"
-    class="btn btn-start"
-    routerLink="/ai-camera">
-    Open AI Focus Monitor
-  </button>
+  <video #video autoplay muted playsinline class="focus-video"></video>
+
+  <p>Focus Score: {{ focusScore }}%</p>
+  <p>Total Warnings: {{ warnings }}</p>
 </section>
 
-    <!-- Timer -->
-    <section class="timer-card">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">FOCUS SESSION</p>
-          <h2>Study Focus Timer</h2>
-          <p class="subtitle">Start your timer and focus on one task.</p>
-        </div>
-        <span class="timer-icon">⏱️</span>
-      </div>
+<!-- Study Timer -->
+<section class="timer-card">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">FOCUS SESSION</p>
+      <h2>Study Focus Timer</h2>
+      <p class="subtitle">Start your timer and focus on one task.</p>
+    </div>
+    <span class="timer-icon">⏱️</span>
+  </div>
 
-      <div class="timer-display">
-        <span class="timer-time">{{ time }}</span>
-        <span class="timer-label">
-          {{ isRunning ? 'SESSION IN PROGRESS' : 'READY TO FOCUS' }}
-        </span>
-      </div>
+  <div class="timer-display">
+    <span class="timer-time">{{ time }}</span>
+    <span class="timer-label">
+      {{ isRunning ? 'SESSION IN PROGRESS' : 'READY TO FOCUS' }}
+    </span>
+  </div>
 
-      <div class="timer-actions">
-        <button
-          type="button"
-          class="btn btn-start"
-          (click)="startTimer()"
-          [disabled]="isRunning">
-          ▶️ Start
-        </button>
+  <div class="timer-actions">
+    <button class="btn btn-start" (click)="startTimer()" [disabled]="isRunning || loading">
+      {{ loading ? 'Loading...' : '▶️ Start' }}
+    </button>
 
-        <button
-          type="button"
-          class="btn btn-pause"
-          (click)="pauseTimer()"
-          [disabled]="!isRunning">
-          Ⅱ Pause
-        </button>
+    <button class="btn btn-pause" (click)="pauseTimer()">
+      Ⅱ Pause
+    </button>
 
-        <button
-          type="button"
-          class="btn btn-reset"
-          (click)="resetTimer()">
-          ↻ Reset
-        </button>
-      </div>
+    <button class="btn btn-reset" (click)="resetTimer()">
+      ↻ Reset
+    </button>
+  </div>
 
-      <p class="timer-note">
-        Tip: Keep your phone away and concentrate on one task.
-      </p>
-    </section>
-
+  <p class="subtitle">Tip: Keep your phone away and concentrate on one task.</p>
+</section>
     <!-- Focus Tips -->
     <section class="tips-card">
       <div class="tips-icon">💡</div>

@@ -428,3 +428,14 @@
     padding: 12px;
   }
 }
+.focus-video {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  min-height: 200px;
+  margin: 20px auto;
+  background: #030712;
+  border: 2px solid #6366f1;
+  border-radius: 15px;
+  object-fit: cover;
+}
